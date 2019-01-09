@@ -1,0 +1,13 @@
+
+---
+
+version: '3'
+
+services:
+  sum:
+    image: "nishedcob/operations-sum"
+    networks:
+      - backend
+
+networks:
+  backend:
