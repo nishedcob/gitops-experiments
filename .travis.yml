@@ -10,4 +10,4 @@ install:
   - pip install -r requirements.txt
 script:
   - make build_apps
-deploy: true
+#deploy: true
