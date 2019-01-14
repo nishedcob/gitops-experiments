@@ -1,5 +1,5 @@
 
-FROM nishedcob/operations-base
+FROM nishedcob/operations-base:20190114014928
 
 WORKDIR /usr/src/app
 

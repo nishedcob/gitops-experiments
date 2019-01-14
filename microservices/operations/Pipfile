@@ -8,6 +8,7 @@ flask-restful = "*"
 flask-sqlalchemy = "*"
 flask-marshmallow = "*"
 marshmallow-sqlalchemy = "*"
+pyyaml = "*"
 
 [requires]
 python_version = "3.5"

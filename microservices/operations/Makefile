@@ -1,4 +1,6 @@
 
+CONFIG_FILE=../../config.yaml
+
 all_apps: Makefile base_app sum_app
 	touch $@
 
@@ -11,7 +13,10 @@ sum_app: Makefile base_app sum/**
 	touch $@
 
 docker_built: tested
-	docker build -t nishedcob/operations-base .
+	date --utc '+%Y%m%d%H%M%S' > $@
+	docker build -t "nishedcob/operations-base:$$(cat $@)" . || rm -v $@
+	sed "s/\(docker_ops_base_curr_version:\s*\)'\?\"\?.*'\?\"\?/\1'"$$(cat $@)"'/" -i $(CONFIG_FILE) || rm -v $@
+	docker push "nishedcob/operations-base:$$(cat $@)" || rm -v $@
 	touch $@
 
 tested: base_app.py Dockerfile requirements.txt test.sh

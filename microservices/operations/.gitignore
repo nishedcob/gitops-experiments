@@ -2,5 +2,4 @@ all_apps
 base_app
 sum_app
 parent_built
-docker_built
 tested

@@ -14,7 +14,7 @@ build_operations_sum: Makefile microservices/* microservices/operations/* micros
 	cd microservices ; make sum_operation_app
 	touch $@
 
-ops_config: ops/komposed
+ops_config:
 	cd ops ; make komposed
 	touch $@
 

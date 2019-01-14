@@ -1,0 +1,13 @@
+
+---
+
+version: '3'
+
+services:
+  sum:
+    image: "nishedcob/operations-sum:{{ docker_ops_sum_curr_version }}"
+    networks:
+      - backend
+
+networks:
+  backend:
