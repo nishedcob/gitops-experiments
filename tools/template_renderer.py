@@ -16,7 +16,7 @@ if __name__ == '__main__':
 
     config_path = args.config[0]
 
-    config = yaml.load(open(config_path).read())
+    config = yaml.safe_load(open(config_path).read())
 
     jinja_env = Environment(
         loader=FileSystemLoader(os.getcwd()),

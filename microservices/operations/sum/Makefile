@@ -1,9 +1,6 @@
 
 CONFIG_FILE=../../../config.yaml
 
-Dockerfile: Dockerfile.j2
-	python3 template_renderer.py --config $(CONFIG_FILE) --template $< --output $@
-
 docker_built: tested Dockerfile
 	date --utc '+%Y%m%d%H%M%S' > $@
 	docker build -t "nishedcob/operations-sum:$$(cat $@)" . || rm -v $@
@@ -11,13 +8,16 @@ docker_built: tested Dockerfile
 	docker push "nishedcob/operations-sum:$$(cat $@)" || rm -v $@
 	touch $@
 
+Dockerfile: Dockerfile.j2
+	python3 template_renderer.py --config $(CONFIG_FILE) --template $< --output $@
+
 tested: parent_built test.sh doctest.sh app.py
 	./doctest.sh
 	./test.sh
 	touch $@
 
 parent_built: ../base_app.py ../Dockerfile ../requirements.txt ../test.sh
-	cd .. ; make
+	cd .. ; make base_app
 	touch $@
 
 clean_all:

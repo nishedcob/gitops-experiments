@@ -9,7 +9,7 @@ base_app: Makefile docker_built
 
 sum_app: Makefile base_app sum/**
 	touch sum/parent_built
-	cd sum ; make
+	cd sum ; make docker_built
 	touch $@
 
 docker_built: tested
