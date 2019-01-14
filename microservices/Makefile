@@ -13,3 +13,7 @@ base_operation_app: Makefile operations/*
 sum_operation_app: Makefile operations/* operations/sum/**
 	cd operations ; make sum_app
 	touch $@
+
+clean_all:
+	rm -v all_apps all_operations_apps base_operation_app sum_operation_app || exit 0
+	cd operations ; make clean_all

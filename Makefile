@@ -17,3 +17,8 @@ build_operations_sum: Makefile microservices/* microservices/operations/* micros
 ops_config: ops/komposed
 	cd ops ; make komposed
 	touch $@
+
+clean_all:
+	rm -v everything build_apps build_operations build_operations_sum ops_config || exit 0
+	cd microservices ; make clean_all
+	cd ops ; make clean_all

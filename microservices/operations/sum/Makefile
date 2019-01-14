@@ -11,3 +11,6 @@ tested: parent_built Dockerfile test.sh doctest.sh
 parent_built: ../base_app.py ../Dockerfile ../requirements.txt ../test.sh
 	cd .. ; make
 	touch $@
+
+clean_all:
+	rm -v parent_built docker_built tested || exit 0

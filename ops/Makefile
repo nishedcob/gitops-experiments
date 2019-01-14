@@ -4,3 +4,6 @@ komposed: docker-compose.yaml Makefile
 	mkdir -vp k8s
 	mv -v sum-deployment.yaml k8s/
 	touch $@
+
+clean_all:
+	rm -v komposed || exit 0

@@ -17,3 +17,7 @@ docker_built: tested
 tested: base_app.py Dockerfile requirements.txt test.sh
 	./test.sh
 	touch $@
+
+clean_all:
+	rm -v all_apps base_app sum_app docker_built tested || exit 0
+	cd sum ; make clean_all
