@@ -5,7 +5,7 @@ version: '3'
 
 services:
   sum:
-    image: "nishedcob/operations-sum:20190116185402"
+    image: "nishedcob/operations-sum:20190120020635"
     networks:
       - backend
 

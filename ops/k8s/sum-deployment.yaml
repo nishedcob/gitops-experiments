@@ -18,7 +18,7 @@ spec:
         io.kompose.service: sum
     spec:
       containers:
-      - image: nishedcob/operations-sum:20190116185402
+      - image: nishedcob/operations-sum:20190120020635
         name: sum
         resources: {}
       restartPolicy: Always
